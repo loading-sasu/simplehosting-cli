@@ -40,7 +40,7 @@ mv builds/simple /usr/local/sbin/simple
 
 ### Introduction
 
-[Gandi Simple Hosting](https://www.gandi.net/en/simple-hosting) is cheap and useful, but sometimes difficult to work with. There is no SSH connections but [an emergency one](https://docs.gandi.net/en/simple_hosting/connection/ssh.html) and every deployment should use [git](https://docs.gandi.net/en/simple_hosting/connection/git.html) or [SFTP](https://docs.gandi.net/en/simple_hosting/connection/sftp.html). Even git deployment is sometimes painful because you cannot deploy any git repository but the one provided with the website setup one the Simple Hosting instance.
+[Gandi Simple Hosting](https://www.gandi.net/en/simple-hosting) is cheap and useful, but sometimes difficult to work with. There is no SSH connections but [an emergency one](https://docs.gandi.net/en/simple_hosting/connection/ssh.html) and every deployment should use [git](https://docs.gandi.net/en/simple_hosting/connection/git.html) or [SFTP](https://docs.gandi.net/en/simple_hosting/connection/sftp.html). Even git deployment is sometimes painful because you cannot deploy any git repository but the one provided with the website setup on the Simple Hosting instance.
 
 This simple tool aims to simplify a little the development process for everyone using a remote Simple Hosting.
 
@@ -90,9 +90,9 @@ Under the hood, the `simple` cli used the git remote url (`git+ssh://123456@git.
 
 ### Sync
 
-You Grav website stores your webpage inside `user/pages/` folder. You may have gitignore them, in order to avoid publishing your local tests online. They are not versioned. But sometimes it would be useful to get the latest version of the website. The official way is to execute sftp commands from the last century and get files from remote path to local one. `simple` cli makes this operation simple. 
+Your Grav website stores your webpage inside `user/pages/` folder. You may have gitignore them, in order to avoid publishing your local tests online. They are not versioned. But sometimes it would be useful to get the latest version of the website. The official way is to execute sftp commands from the last century and get files from remote path to local one. `simple` cli makes this operation simple. 
 
-If I want to get the pages files and folder from remote, I have to sync my local path `htdocs/user/pages` (Simple Hosting uses htdocs as document root for reasons and there is no way to bypass it) and request `simple` to sync upward or downward, recursivley or not. In my case, I wan't to download all pages recursively
+If you want to get the pages files and folder from remote, you have to sync my local path `htdocs/user/pages` (Simple Hosting uses htdocs as document root for reasons and there is no way to bypass it) and request `simple` to sync upward or downward, recursivley or not. In this case, you may want to download all pages recursively
 
 ```bash
 ❯ simple sync htdocs/user/pages -r
@@ -105,7 +105,7 @@ If I want to get the pages files and folder from remote, I have to sync my local
  Downloading htdocs/user/pages: ✔
 ```
 
-And done. If I want to sync back my local page to the remote website, I can use the `direction` argument
+And done. If you want to sync back you local pages to the remote website, you can use the `direction` argument
 
 ```bash
  ❯ simple sync --recursive htdocs/user/pages up
