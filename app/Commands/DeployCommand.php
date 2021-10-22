@@ -20,7 +20,7 @@ class DeployCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Deploy current codebase on simple hosting';
+    protected $description = 'Deploy current git codebase on simple hosting';
 
     /**
      * Execute the console command.
@@ -32,7 +32,7 @@ class DeployCommand extends Command
         $environment = $this->choice(
             'Which environment do you want to deploy:',
             app('git')->getRemotes()->pluck('website', 'remote')->toArray(),
-            'origin'
+            app('git')->getRemotes()->pluck('remote')->first()
         );
 
         $remote = app('git')->getRemote($environment);
@@ -42,8 +42,6 @@ class DeployCommand extends Command
             $remote['host'],
             $remote['repository'],
         );
-
-        Terminal::timeout(0)->run($command);
 
         $result = $this->task("Deploying code", function () use ($command) {
             return Terminal::timeout(0)->run($command);
