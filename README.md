@@ -111,7 +111,7 @@ And done. If you want to sync back you local pages to the remote website, you ca
  ❯ simple sync --recursive htdocs/user/pages up
 ```
 
-Of course, this works with every (versioned or not) files or folder. Your prestashop images folder, The whole Wordpress website, etc.
+Of course, this works with every (versioned or not) files or folder. Your prestashop images folder, your whole Wordpress website, etc.
 
 ### Help
 
